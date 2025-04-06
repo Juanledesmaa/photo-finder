@@ -8,5 +8,9 @@
 import Foundation
 
 protocol NetworkClientProtocol {
-	func request<T: Decodable>(url: URL, method: HTTPMethod) async throws -> T
+	func request<T: Decodable>(
+		url: URL,
+		method: HTTPMethod,
+		decoder: @escaping (Data) throws -> T
+	) async throws -> T
 }

@@ -12,11 +12,7 @@ struct Photo_FinderApp: App {
     var body: some Scene {
         WindowGroup {
 			
-			let networkClient = NetworkClient(
-				session: URLSession(
-					configuration: .ephemeral
-				)
-			)
+			let networkClient = NetworkClient()
 			let appConfiguration = APIConfiguration()
 			let recipesListAPIConfiguration = PhotoListAPIConfiguration(
 				configuration: appConfiguration

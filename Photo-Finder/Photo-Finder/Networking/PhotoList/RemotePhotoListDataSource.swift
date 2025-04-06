@@ -37,6 +37,10 @@ final class RemotePhotoListDataSource: PhotoListDataSource {
 			)
 		}
 
-		return try await networkClient.request(url: url, method: .get)
+		return try await networkClient.request(
+			url: url,
+			method: .get,
+			decoder: DecoderUtility.jsonpDecoder()
+		)
 	}
 }

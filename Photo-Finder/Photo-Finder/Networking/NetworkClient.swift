@@ -18,7 +18,8 @@ final class NetworkClient: NetworkClientProtocol {
 
 	func request<T: Decodable>(
 		url: URL,
-		method: HTTPMethod = .get
+		method: HTTPMethod = .get,
+		decoder: @escaping (Data) throws -> T
 	) async throws -> T {
 		var request = URLRequest(url: url)
 		request.httpMethod = method.rawValue
@@ -33,18 +34,26 @@ final class NetworkClient: NetworkClientProtocol {
 			throw APIError.invalidResponse
 		}
 
-		if let apiError = try? JSONDecoder().decode(APIErrorResponse.self, from: data),
-		   apiError.stat == "fail" {
-			throw APIError.flickrError(code: apiError.code, message: apiError.message)
+		if let apiError = try? JSONDecoder().decode(
+			APIErrorResponse.self,
+			from: data
+		), apiError.stat == "fail" {
+			throw APIError.flickrError(
+				code: apiError.code,
+				message: apiError.message
+			)
 		}
 
 		do {
-			let jsonDecoder = JSONDecoder()
-			jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
-			return try jsonDecoder.decode(T.self, from: data)
+			return try decoder(data)
 		} catch {
-			let responseString = String(data: data, encoding: .utf8) ?? "Unreadable Data"
-			print("Decoding Failed for URL: \(url) | Response: \(responseString)")
+			let responseString = String(
+				data: data,
+				encoding: .utf8
+			) ?? "Unreadable Data"
+			print(
+				"Decoding Failed for URL: \(url) | Response: \(responseString)"
+			)
 			throw APIError.decodingFailed(error)
 		}
 	}
