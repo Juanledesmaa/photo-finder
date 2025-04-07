@@ -53,11 +53,6 @@
 			path = "Photo-FinderTests";
 			sourceTree = "<group>";
 		};
-		28F688152DA213D4000E5210 /* Photo-FinderUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "Photo-FinderUITests";
-			sourceTree = "<group>";
-		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +85,6 @@
 			children = (
 				28F687FA2DA213D2000E5210 /* Photo-Finder */,
 				28F6880B2DA213D4000E5210 /* Photo-FinderTests */,
-				28F688152DA213D4000E5210 /* Photo-FinderUITests */,
 				28F687F92DA213D2000E5210 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -165,9 +159,6 @@
 			);
 			dependencies = (
 				28F688142DA213D4000E5210 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				28F688152DA213D4000E5210 /* Photo-FinderUITests */,
 			);
 			name = "Photo-FinderUITests";
 			packageProductDependencies = (
@@ -413,11 +404,12 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Photo-Finder/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Photo Finder";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -443,11 +435,12 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Photo-Finder/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Photo Finder";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

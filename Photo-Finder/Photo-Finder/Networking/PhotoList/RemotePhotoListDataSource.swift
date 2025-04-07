@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class RemotePhotoListDataSource: PhotoListDataSource {
+final class RemotePhotoListDataSource: PhotoListDataSourceProtocol {
 	let networkClient: NetworkClientProtocol
 	let apiConfiguration: PhotoListAPIConfiguration
 	

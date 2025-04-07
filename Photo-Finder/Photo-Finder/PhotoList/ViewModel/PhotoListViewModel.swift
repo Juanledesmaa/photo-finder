@@ -29,7 +29,7 @@ final class PhotoListViewModel: ObservableObject {
 	
 	var shownPhotos: [Photo] = []
 	var isLoadingMoreResults: Bool = false
-	private let photoListDataSource: PhotoListDataSource
+	private let photoListDataSource: PhotoListDataSourceProtocol
 	private var photoPage: PhotoPage = PhotoPage.empty {
 		didSet {
 			state = photoPage.photo.isEmpty ? .empty : .success
@@ -39,7 +39,7 @@ final class PhotoListViewModel: ObservableObject {
 	}
 	private var cancellables = Set<AnyCancellable>()
 
-	init(photoListDataSource: PhotoListDataSource) {
+	init(photoListDataSource: PhotoListDataSourceProtocol) {
 		self.photoListDataSource = photoListDataSource
 		setUpBindings()
 	}

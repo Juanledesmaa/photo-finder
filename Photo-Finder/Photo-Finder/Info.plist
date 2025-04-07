@@ -2,7 +2,13 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>API_FORMAT</key>
+	<string>json</string>
 	<key>BASE_URL</key>
 	<string>https://api.flickr.com</string>
+	<key>SAFE_SEARCH</key>
+	<string>1</string>
+	<key>SERVICES_REST_PATH</key>
+	<string>/services/rest/</string>
 </dict>
 </plist>

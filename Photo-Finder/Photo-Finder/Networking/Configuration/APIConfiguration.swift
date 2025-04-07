@@ -17,16 +17,28 @@ private struct Constants {
 
 struct APIConfiguration: APIConfigurationProtocol {
 	var apiKey: String = Constants.API_KEY
-	var format: String = "json"
+	var format: String {
+		return bundle.object(
+			forInfoDictionaryKey: "API_FORMAT"
+		) as? String ?? "json"
+	}
 	var baseUrl: String {
 		return bundle.object(
 			forInfoDictionaryKey: "BASE_URL"
 		) as? String ?? ""
 	}
 	
-	var path: String = "/services/rest/"
+	var path: String {
+		return bundle.object(
+			forInfoDictionaryKey: "SERVICES_REST_PATH"
+		) as? String ?? "/services/rest/"
+	}
 	
-	var safeSearch: String = "1"
+	var safeSearch: String {
+		return bundle.object(
+			forInfoDictionaryKey: "SAFE_SEARCH"
+		) as? String ?? "1"
+	}
 	
 	private let bundle: Bundle
 
