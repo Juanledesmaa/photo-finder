@@ -21,7 +21,7 @@
 
 ### Time Spent
 
-I spent almost three development days on this project (around 6-8 hours each day). I allocated the time as follows:
+I spent two development days on this project (around 6-8 hours each day). I allocated the time as follows:
 
 1. Project Setup and Architecture (20%)
 I began by defining the code layers, folder structure, and separation of concerns. The business models and networking layer were also established at this stage. We verified a successful connection to the app’s remote resources and ensured the business layer was properly integrated.
