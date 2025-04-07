@@ -11,23 +11,9 @@ import SwiftUI
 struct Photo_FinderApp: App {
     var body: some Scene {
         WindowGroup {
-			
-			let networkClient = NetworkClient()
-			let appConfiguration = APIConfiguration()
-			let ApiConfiguration = PhotoListAPIConfiguration(
-				configuration: appConfiguration
+			PhotoListView(
+				viewModel: AppDependencies.resolve().makePhotoListViewModel()
 			)
-			
-			let remoteDataSource = RemotePhotoListDataSource(
-				networkClient: networkClient,
-				apiConfiguration: ApiConfiguration
-			)
-
-			let viewModel = PhotoListViewModel(
-				photoListDataSource: remoteDataSource
-			)
-
-			PhotoListView(viewModel: viewModel)
         }
     }
 }
