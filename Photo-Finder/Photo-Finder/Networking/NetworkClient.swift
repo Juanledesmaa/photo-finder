@@ -37,7 +37,7 @@ final class NetworkClient: NetworkClientProtocol {
 		if let apiError = try? JSONDecoder().decode(
 			APIErrorResponse.self,
 			from: data
-		), apiError.stat == "fail" {
+		), apiError.stat == .fail {
 			throw APIError.flickrError(
 				code: apiError.code,
 				message: apiError.message

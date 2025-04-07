@@ -6,7 +6,7 @@
 //
 
 /// The top-level response object from the Flickr API search request.
-struct PhotosSearchResponse: Codable {
+struct PhotosSearchResponse: Decodable {
 	let photos: PhotoPage
-	let stat: String
+	let stat: APIStatus
 }

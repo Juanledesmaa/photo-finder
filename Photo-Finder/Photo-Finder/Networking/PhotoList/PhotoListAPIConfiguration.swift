@@ -17,11 +17,11 @@ final class PhotoListAPIConfiguration {
 	func makeSearchPhotosRequest(
 		searchTerm: String,
 		page: Int = 1,
-		perPage: Int = 100,
+		perPage: Int = 50,
 		method: APIMethod = .photosSearch
 	) -> URLRequest? {
 		guard var components = URLComponents(
-			string: configuration.baseUrl + "/services/rest/"
+			string: configuration.baseUrl + configuration.path
 		) else {
 			return nil
 		}
@@ -32,6 +32,7 @@ final class PhotoListAPIConfiguration {
 			URLQueryItem(name: "text", value: searchTerm),
 			URLQueryItem(name: "page", value: "\(page)"),
 			URLQueryItem(name: "per_page", value: "\(perPage)"),
+			URLQueryItem(name: "safe_search", value: configuration.safeSearch),
 			method.queryItem,
 		]
 

@@ -14,25 +14,20 @@ struct Photo_FinderApp: App {
 			
 			let networkClient = NetworkClient()
 			let appConfiguration = APIConfiguration()
-			let recipesListAPIConfiguration = PhotoListAPIConfiguration(
+			let ApiConfiguration = PhotoListAPIConfiguration(
 				configuration: appConfiguration
 			)
 			
 			let remoteDataSource = RemotePhotoListDataSource(
 				networkClient: networkClient,
-				apiConfiguration: recipesListAPIConfiguration
+				apiConfiguration: ApiConfiguration
 			)
-			
-            ContentView()
-			Text("Fetching photos…")
-				.task {
-					do {
-						let photos = try await remoteDataSource.fetchPhotos()
-						print("✅ Fetched photos:", photos)
-					} catch {
-						print("❌ Fetch failed:", error)
-					}
-				}
+
+			let viewModel = PhotoListViewModel(
+				photoListDataSource: remoteDataSource
+			)
+
+			PhotoListView(viewModel: viewModel)
         }
     }
 }

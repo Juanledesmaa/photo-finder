@@ -11,10 +11,6 @@ final class RemotePhotoListDataSource: PhotoListDataSource {
 	let networkClient: NetworkClientProtocol
 	let apiConfiguration: PhotoListAPIConfiguration
 	
-	private struct Constants {
-		static let defaultSearchTerm = "sunset"
-	}
-	
 	init(
 		networkClient: NetworkClientProtocol,
 		apiConfiguration: PhotoListAPIConfiguration
@@ -24,10 +20,15 @@ final class RemotePhotoListDataSource: PhotoListDataSource {
 	}
 	
 	func fetchPhotos(
-		for searchTerm: String = Constants.defaultSearchTerm
+		for searchTerm: String,
+		page: Int
 	) async throws -> PhotosSearchResponse {
 		guard let url = apiConfiguration
-			.makeSearchPhotosRequest(searchTerm: searchTerm)?.url else {
+			.makeSearchPhotosRequest(
+				searchTerm: searchTerm,
+				page: page,
+				method: searchTerm.isEmpty ? .photosGetRecent : .photosSearch
+			)?.url else {
 			throw NSError(
 				domain: "",
 				code: -1,
@@ -36,7 +37,7 @@ final class RemotePhotoListDataSource: PhotoListDataSource {
 				]
 			)
 		}
-
+		
 		return try await networkClient.request(
 			url: url,
 			method: .get,
@@ -44,3 +45,6 @@ final class RemotePhotoListDataSource: PhotoListDataSource {
 		)
 	}
 }
+
+// This is a stateless dataSource so it's safe to use as a Sendable.
+extension RemotePhotoListDataSource: @unchecked Sendable {}

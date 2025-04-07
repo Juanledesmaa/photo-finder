@@ -7,8 +7,9 @@
 
 import Foundation
 
-protocol PhotoListDataSource {
+protocol PhotoListDataSource: Sendable {
 	func fetchPhotos(
-		for searchTerm: String
+		for searchTerm: String,
+		page: Int
 	) async throws -> PhotosSearchResponse
 }

@@ -6,7 +6,7 @@
 //
 
 struct APIErrorResponse: Decodable {
-	let stat: String
+	let stat: APIStatus
 	let code: Int
 	let message: String
 }

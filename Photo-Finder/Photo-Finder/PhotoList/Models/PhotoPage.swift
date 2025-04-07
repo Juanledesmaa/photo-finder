@@ -13,3 +13,15 @@ struct PhotoPage: Codable {
 	let total: Int
 	let photo: [Photo]
 }
+
+extension PhotoPage {
+	static var empty: PhotoPage {
+		PhotoPage(
+			page: 1,
+			pages: 1,
+			perpage: 0,
+			total: 0,
+			photo: []
+		)
+	}
+}

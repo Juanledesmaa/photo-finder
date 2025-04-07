@@ -24,6 +24,10 @@ struct APIConfiguration: APIConfigurationProtocol {
 		) as? String ?? ""
 	}
 	
+	var path: String = "/services/rest/"
+	
+	var safeSearch: String = "1"
+	
 	private let bundle: Bundle
 
 	init(bundle: Bundle = .main) {
