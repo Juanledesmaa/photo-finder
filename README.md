@@ -7,7 +7,7 @@
 <img src="https://github.com/user-attachments/assets/3c720092-2446-40bd-96ba-236018e27887" alt="Screenshot_3" width="200">
 
 
-### Focus Areas: What specific areas of the project did you prioritize? Why did you choose to focus on these areas?
+### Focus Areas
 
 * User Experience: From the start, the look and feel of the app was my main area of focus. We chose to prioritize this because I believe a user's first impression of an application is shaped by how smooth and useful the experience is.
 
@@ -19,7 +19,7 @@
 
 * Look and Feel: As a user, I appreciate having the option to use an app in dark mode, so I made sure to include that feature for a more customizable experience.
 
-### Time Spent: Approximately how long did you spend working on this project? How did you allocate your time?
+### Time Spent
 
 I spent almost three development days on this project (around 6-8 hours each day). I allocated the time as follows:
 
