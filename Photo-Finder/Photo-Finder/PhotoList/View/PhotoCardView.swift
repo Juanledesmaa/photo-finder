@@ -12,17 +12,15 @@ struct PhotoCardView: View {
 
 	var body: some View {
 		ZStack {
-			if let url = URL(
-				string: photo.imageURL?.absoluteString ?? ""
-			) {
+			if let url = photo.imageURL {
 				CachedAsyncImageView(url: url, placeholderImage: .imagePlaceholder)
-					.scaledToFill()
 					.opacity(0.7)
+					.scaledToFill()
 					.clipped()
 			} else {
 				Color.gray
 			}
-			
+
 			VStack {
 				Text(photo.title)
 					.foregroundStyle(.white)
@@ -32,8 +30,11 @@ struct PhotoCardView: View {
 			}
 			.padding()
 		}
-		.background(.black)
+		.aspectRatio(1, contentMode: .fit)
+		.frame(maxWidth: .infinity)
+		.background(Color.black)
 		.cornerRadius(30)
 		.shadow(radius: 4)
 	}
 }
+

@@ -33,7 +33,6 @@ struct CachedAsyncImageView: View {
 					image
 						.resizable()
 						.frame(maxWidth: .infinity)
-						.frame(height: 120)
 						.aspectRatio(1, contentMode: .fit)
 				@unknown default:
 					Color.white
